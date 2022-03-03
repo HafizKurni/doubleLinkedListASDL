@@ -5,6 +5,7 @@ public class Double2LinkedList {
 
 	Node head;
 	Node tail;
+	int length;
 
    class Node {
 		int data;
