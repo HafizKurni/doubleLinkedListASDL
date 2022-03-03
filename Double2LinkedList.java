@@ -15,6 +15,51 @@ public class Double2LinkedList {
 			data = d;
 		}
 	}
+	
+	public boolean isEmpty() {
+		return length == 0;
+	}
+
+	public int length() {
+		return length;
+	}
+
+	
+// 	Method menambah tambah data
+	public void addFirst(char data) {
+		Node newNode = new Node(data);
+		if (isEmpty()) {
+			tail = newNode;
+		} else {
+			head.prev = newNode;
+		}
+		newNode.next = head;
+		head = newNode;
+		length++;
+	}
+
+	public void add(int position, int data) {
+
+		Node node = new Node(data);
+
+		if (position == 0) {
+			node.next = head;
+			head = node;
+		} else {
+			Node prev = head;
+			int count = 1;
+
+			while (count < position) {
+				prev = prev.next;
+				count++;
+			}
+
+			Node current = prev.next;
+			prev.next = node;
+			node.next = current;
+		}
+
+	}
 //Method Hitung Bilangan Node
     int countOfNode(Node head) {
 		int count = 0;
