@@ -114,6 +114,35 @@ public class Double2LinkedList {
 
 		return head;
 	}
+	
+		
+//method pencarian data
+	public boolean find(int data) {
+		boolean flag = false;
+		Node n = head;
+		while (n!= null) {
+			if (n.data == data) {
+			flag = true;
+			break;
+		}
+		n = n.next;
+	}
+	return flag;
+	}
+		
+//method pengubahan data
+	public void replace(Node node, int data) {
+		Node n = head;
+		while(n!= null) {
+			if(n == node) {
+				n.data = data;
+				System.out.println("Data telah berhasil diubah");
+				break;
+			}
+			n = n.next;
+		}
+	}
+	
 //Method Print LinkedList
     public void printList(boolean asc) {
 		Node n = null;
@@ -220,6 +249,55 @@ public class Double2LinkedList {
 			break;
 		default:
 			System.out.print("Silakan pilih antara [1/2/3/4/5]");
+			menuPenghapusanNode();
+		}
+
+	}
+	  public void menu_Pencarian_penghapusan_data() {
+		Scanner input = new Scanner(System.in);
+
+		System.out.println("*****PILIHAN PENCARIAN DAN PENGHAPUSAN DATA NODE*****");
+		System.out.println("1. Cari Data");
+		System.out.println("2. Ubah Data");
+		System.out.println("3. Cetak Data");
+		System.out.println("4. Kembali");
+		int pilih = input.nextInt();
+
+		boolean x = true;
+		switch (pilih) {
+		case 1:
+				System.out.print("Masukkan data yang ingin dicari : ");
+				int pencarian = input.nextInt();
+				find(pencarian);
+				if(flag == true){
+					System.out.print("Data yang dicari ditemukan");
+				}
+				else{
+					System.out.print("Data yang dicari tidak ditemukan");
+				menu_Pencarian_penghapusan_data();
+				
+					break;
+				
+			}
+		case 2: {
+			System.out.print("Masukkan data yang ingin diubah :");
+			
+				break;
+			}
+		}
+
+		case 3: {
+			printList(true);
+			System.out.print("Kembali?");
+			String yesNo = input.next();
+			menuPenghapusanNode();
+			break;
+		}
+		case 4:
+			manual();
+			break;
+		default:
+			System.out.print("Silakan pilih antara [1/2/3/4]");
 			menuPenghapusanNode();
 		}
 
