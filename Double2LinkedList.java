@@ -187,7 +187,7 @@ public class Double2LinkedList {
 			menuPenghapusanNode();
 			break;
 		case 3:
-			removeLast();// Diganti untuk menu pencarian/pengubahaan data (louis)
+			menu_Pencarian_penghapusan_data();
 			break;
 		}
 	}
