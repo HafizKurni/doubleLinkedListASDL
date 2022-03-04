@@ -114,7 +114,7 @@ public class MainDoubleLinkedList{
               Double2LinkedList lList = new Double2LinkedList();
              lList.manual();
          }else{
-             pustaka(); 
+             menuPustaka(); 
          }
 
          
