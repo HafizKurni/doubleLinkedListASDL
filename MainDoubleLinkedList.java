@@ -99,6 +99,62 @@ public class MainDoubleLinkedList{
 			break;
 		}
      }
+	     
+	static void cariTukarData() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("\n[--------------------------------]");
+		System.out.println("**PILIHAN PENCARIAN DAN PENGHAPUSAN DATA NODE**");
+		System.out.println("1. Cari Data");
+		System.out.println("2. Ubah Data");
+		System.out.println("3. Cetak Data");
+		System.out.println("4. Kembali");
+		System.out.print("Silakan pilih antara [1/2/3/4] : ");
+		int pilih3 = input.nextInt();
+
+		switch (pilih3) {
+		case 1:
+			System.out.println("\n[----Pencarian Data---]");
+			System.out.print("Masukkan data yang ingin dicari : ");
+			int pencarian = input.nextInt();
+			int hasil = lListP.get(pencarian);
+			if (hasil < lListP.size()) {
+				System.out.println("Data yang dicari ditemukan");
+				System.out.println(lListP.get(pencarian-1));
+			} else {
+				System.out.print("[Data yang dicari tidak ditemukan]");
+				System.out.print("\nKembali? (y)");
+				String yesN = input.next();
+				cariTukarData();
+				break;
+			}
+			cariTukarData();
+			break;
+		case 2: {
+			System.out.print("\nMasukkan data ke berapa yang ingin diubah :");
+			int dataKe = input.nextInt();
+			System.out.print("Masukan nilai data yang di inginkan :");
+			int ubah = input.nextInt();
+			lListP.set(dataKe-1, ubah);
+			cariTukarData();
+			break;
+		}
+		case 3: {
+			System.out.print(lListP);
+			System.out.print("Kembali? (y)");
+			String yesN = input.next();
+			cariTukarData();
+			break;
+		}
+		case 4:
+			menuPustaka();
+			break;
+		default:
+			System.out.print("Silakan pilih antara [1/2/3/4] : ");
+			cariTukarData();
+			break;
+		}
+
+	}
 
      public static void main(String[] args){
          
