@@ -2,6 +2,33 @@ import java.util.Scanner;
 
 public class MainDoubleLinkedList{
      static LinkedList<Integer> lListP = new LinkedList<>();
+	
+	
+     static void menuPustaka() {
+     Scanner input = new Scanner(System.in);
+	     System.out.println("\n[--------------------------------]");
+	     System.out.println("*****Berada di Pilihan Awal Manual*****");
+	     System.out.println("1. Tambah Data");
+	     System.out.println("2. Hapus Data");
+	     System.out.println("3. Pencarian/Pengubahan Data");
+	     System.out.println("4. Kembali");
+	     System.out.print("Silakan pilih antara [1/2/3/4] : ");
+
+	     int pilih = input.nextInt();
+	     boolean x = true;
+	     switch (pilih) {
+		     case 1:
+			     //tambahData();
+		     case 2:
+			     hapusData();
+		     case 3:
+			     //cariTukarData();
+		}
+
+	
+	
+	
+	
      static void hapusData(){
      Scanner input = new Scanner(System.in);
 		System.out.println("\n[--------------------------------]");
@@ -26,6 +53,7 @@ public class MainDoubleLinkedList{
 				if (yesNo2.equalsIgnoreCase("y")) {
 					lListP.removeFirst();
 				} else {
+					hapusData()
 					break;
 				}
 			}
@@ -35,10 +63,14 @@ public class MainDoubleLinkedList{
 				System.out.println("[----Penghapusan Data---]");
 				System.out.println("Yakin menghapus data Tengah? (y/n)");
 				String yesNo2 = input.next();
+				
+				int ukuran = lListP.size();
+				int mid = ukuran/2;
 
 				if (yesNo2.equalsIgnoreCase("y")) {
-					lListP.removeFirst();
+					lListP.remove(mid);
 				} else {
+					hapusData()
 					break;
 				}
 			}
@@ -51,16 +83,19 @@ public class MainDoubleLinkedList{
 				if (yesNo2.equalsIgnoreCase("y")) {
 					lListP.removeLast();
 				} else {
+					hapusData()
 					break;
 				}
 			}
 			break;
 		case 4:
-			lListP.toArray();
+			System.out.print(lListP);
 			System.out.print("Kembali? (y)");
 			String yesNo = input.next();
+			hapusData()
 			break;
 		default:
+			menuPustaka();
 			break;
 		}
      }
@@ -79,7 +114,7 @@ public class MainDoubleLinkedList{
               Double2LinkedList lList = new Double2LinkedList();
              lList.manual();
          }else{
-             lList.pustaka(); // Belum ada function nya
+             pustaka(); 
          }
 
          
