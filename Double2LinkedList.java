@@ -110,15 +110,17 @@ public class Double2LinkedList {
 	}
 //method pengubahan data
 	public void replace(Node node, int data) {
-		Node n = head;
-		while(n!= null) {
-			if(n == node) {
-				n.data = data;
-				System.out.println("Data telah berhasil diubah");
-				break;
-			}
-			n = n.next;
+		Node current = head;
+		Node prev = null;
+
+		while (current != null && node >= 0) {
+			node--;
+			prev = current;
+			current = current.next;
 		}
+		if (prev != null)
+			prev.data = data;
+		System.out.println("DATA TELAH BERHASIL DIUBAH");
 	}
 //Method Print LinkedList
     public void printList(boolean asc) {
@@ -322,7 +324,7 @@ public class Double2LinkedList {
 			int dataKe = input.nextInt();
 			System.out.print("Masukan nilai data yang di inginkan :");
 			int ubah = input.nextInt();
-			replace(dataKe, ubah);
+			replace(dataKe-1, ubah);
 			menu_Pencarian_penghapusan_data()
 			break;
 		case 3: {
