@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.LinkedList;
 public class MainDoubleLinkedList{
      static LinkedList<Integer> lListP = new LinkedList<>();
 	
@@ -25,7 +25,91 @@ public class MainDoubleLinkedList{
 			     //cariTukarData();
 		}
 
-	
+	static void tambahData() {
+		Scanner input = new Scanner(System.in);
+		boolean x = true;
+
+		System.out.println("\n[--------------------------------]");
+		System.out.println("**PILIHAN TAMBAHAN DATA NODE**");
+		System.out.println("1. Tambah Data Awal");
+		System.out.println("2. Tambah Data Tengah");
+		System.out.println("3. Tambah Data Akhir");
+		System.out.println("4. Cetak Data");
+		System.out.println("5. Kembali");
+		System.out.print("Silakan pilih antara [1/2/3/4/5] : ");
+
+		int pilih1 = input.nextInt();
+		switch (pilih1) {
+		case 1:
+			System.out.println("\n[----Penambahan Data---]");
+			System.out.println("Masukan Nilai Data Awal");
+			System.out.println("Masukan Nilai Data 0 Untuk Berhenti ");
+			while (x == true) {
+				for (int i = 0; i < i + 1; i++) {
+					System.out.print("DATA KE-" + (i + 1) + ": ");
+					int dataInput = input.nextInt();
+					if (dataInput == 0) {
+						x = false;
+						break;
+					}
+					lListP.addFirst(dataInput);
+				}
+			}
+			tambahData();
+			break;
+		case 2:
+			while (x == true) {
+				System.out.println("\n[--------------------------------]");
+				System.out.println("Masukan Nilai Data Tengah");
+				System.out.println("Memasukan Nilai Data 0 Untuk Berhenti ");
+				int ukuran = lListP.size();
+				int mid = ukuran / 2;
+
+				for (int i = 0; i < i + 1; i++) {
+					System.out.print("DATA KE-" + (mid+1) + ": ");
+
+					int dataInput = input.nextInt();
+					if (dataInput == 0) {
+						x = false;
+						tambahData();
+						break;
+					}
+					lListP.add(mid,dataInput);
+					mid++;
+				}
+			}
+			tambahData();
+			break;
+		case 3:
+			System.out.println("\n[--------------------------------]");
+			System.out.println("Masukan Nilai Data Akhir");
+			System.out.println("Memasukan Nilai Data 0 Untuk Berhenti ");
+			int ukuran = lListP.size();
+			while (x == true) {
+				for (int i = 0; i < i + 1; i++) {
+					System.out.print("DATA KE-" + (ukuran+1) + ": ");
+
+					int dataInput = input.nextInt();
+					if (dataInput == 0) {
+						x = false;
+						break;
+					}
+					lListP.add(dataInput);
+					ukuran++;
+				}
+			}
+			tambahData();
+			break;
+		case 4:
+			System.out.print(lListP);
+			System.out.print("\nKembali? (y)");
+			String yesNo = input.next();
+			tambahData();
+			break;
+		default:
+			menuPustaka();
+		}
+	}
 	
 	
 	
