@@ -1,12 +1,8 @@
-
 import java.util.Scanner;
-
 public class Double2LinkedList {
-
 	Node head;
 	Node tail;
 	int length;
-
    class Node {
 		int data;
 		Node prev;
@@ -16,16 +12,12 @@ public class Double2LinkedList {
 			data = d;
 		}
 	}
-	
 	public boolean isEmpty() {
 		return length == 0;
 	}
-
 	public int length() {
 		return length;
 	}
-
-	
 // 	Method menambah tambah data
 	public void addFirst(char data) {
 		Node newNode = new Node(data);
@@ -38,28 +30,22 @@ public class Double2LinkedList {
 		head = newNode;
 		length++;
 	}
-
 	public void add(int position, int data) {
-
 		Node node = new Node(data);
-
 		if (position == 0) {
 			node.next = head;
 			head = node;
 		} else {
 			Node prev = head;
 			int count = 1;
-
 			while (count < position) {
 				prev = prev.next;
 				count++;
 			}
-
 			Node current = prev.next;
 			prev.next = node;
 			node.next = current;
 		}
-
 	}
 //Method Hitung Bilangan Node
     int countOfNode(Node head) {
@@ -84,19 +70,13 @@ public class Double2LinkedList {
 		if (head.next == null) {
 			return null;
 		}
-
 		Node copyHead = head;
-
 		int count = countOfNode(head);
-
 		int mid = count / 2;
-
 		while (mid-- > 1) {
 			head = head.next;
 		}
-
 		head.next = head.next.next;
-
 		return copyHead;
 	}
 //Method Hapus Data Akhir
@@ -114,9 +94,7 @@ public class Double2LinkedList {
 		second_last.next = null;
 
 		return head;
-	}
-	
-		
+	}	
 //method pencarian data
 	public boolean find(int data) {
 		boolean flag = false;
@@ -130,7 +108,6 @@ public class Double2LinkedList {
 	}
 	return flag;
 	}
-		
 //method pengubahan data
 	public void replace(Node node, int data) {
 		Node n = head;
@@ -143,7 +120,6 @@ public class Double2LinkedList {
 			n = n.next;
 		}
 	}
-	
 //Method Print LinkedList
     public void printList(boolean asc) {
 		Node n = null;
@@ -162,14 +138,6 @@ public class Double2LinkedList {
 		}
 		System.out.println("]");
 	}
-
-
-
-
-
-
-
-
 //Menu Utama
     public void manual() {
 		System.out.println("*****Berada di Pilihan Awal*****");
@@ -192,8 +160,78 @@ public class Double2LinkedList {
 			break;
 		}
 	}
+//Menu Penambahan Data
+	public void menuPenambahanNode() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("\n[--------------------------------]");
+		System.out.println("*****PILIHAN TAMBAH DATA NODE*****");
+		System.out.println("1. Tambah Data Awal");
+		System.out.println("2. Tambah Data Tengah");
+		System.out.println("3. Tambah Data Akhir");
+		System.out.println("4. Cetak Data");
+		System.out.println("5. Kembali");
+		System.out.print("Silakan pilih antara [1/2/3/4/5] : ");
+		int pilih = input.nextInt();
+		boolean x = true;
+		switch (pilih) {
+		case 1:
+			System.out.println("Masukan Nilai Data Awal");
+			System.out.println("Masukan Nilai Data 0 Untuk Berhenti ");
+			for (int i = 0; i <= i + 1; i++) {
+				System.out.print("Masukan Data Ke " + (i + 1) + " : ");
+				int dataMasuk = input.nextInt();
+				if (dataMasuk == 0) {
+					menuPenambahanNode();
+					break;
+				}
+				addFirst(dataMasuk);
+			}
+		case 2: {
+			System.out.println("Masukan Data Tengah");
+			int pos;
+			int value;
+			System.out.print("Masukkan posisi yang ingin ditambah : ");
+			pos = input.nextInt();
+			System.out.print("Masukkan data yang ingin ditambah : ");
+			value = input.nextInt();
+			add(pos, value);
+			System.out.print("Kembali? (y/n)");
+			String lanjut = input.next();
+			if ((lanjut.equalsIgnoreCase("y"))) {
+				menuPenambahanNode();
+				break;
+			}
+		}
+			break;
+		case 3:
+			System.out.println("Masukan Nilai Data Akhir");
+			System.out.println("Masukan Nilai Data 0 Untuk Berhenti ");
+			for (int i = 0; i <= i + 1; i++) {
+				System.out.print("Masukan Data dari Akhiran " + " : ");
+				int dataMasuk = input.nextInt();
+				if (dataMasuk == 0) {
+					menuPenambahanNode();
+					break;
+				}
+				addLast(dataMasuk);
+			}
+		case 4: {
+			printList(true);
+			System.out.print("Kembali? (y/n)");
+			String yesNo = input.next();
+			menuPenambahanNode();
+			break;
+		}
+		case 5:
+			manual();
+			break;
+		default:
+			System.out.print("Silakan pilih antara [1/2/3/4/5] : ");
+			menuPenghapusanNode();
+		}
+	}
 //Menu Penghapus Data
-    public void menuPenghapusanNode() {
+	public void menuPenghapusanNode() {
 		Scanner input = new Scanner(System.in);
 
 		System.out.println("*****PILIHAN HAPUS DATA NODE*****");
@@ -254,44 +292,44 @@ public class Double2LinkedList {
 		}
 
 	}
-	  public void menu_Pencarian_penghapusan_data() {
+//Menu Pencarian dan Pengubahan Data Node 	
+	public void menu_Pencarian_penghapusan_data() {
 		Scanner input = new Scanner(System.in);
 
-		System.out.println("*****PILIHAN PENCARIAN DAN PENGHAPUSAN DATA NODE*****");
+		System.out.println("*****PILIHAN PENCARIAN DAN PENGUBAHAN DATA NODE*****");
 		System.out.println("1. Cari Data");
 		System.out.println("2. Ubah Data");
 		System.out.println("3. Cetak Data");
 		System.out.println("4. Kembali");
+		System.out.print("Silakan pilih antara [1/2/3/4] : ");
 		int pilih = input.nextInt();
 
 		boolean x = true;
 		switch (pilih) {
 		case 1:
-				System.out.print("Masukkan data yang ingin dicari : ");
-				int pencarian = input.nextInt();
-				find(pencarian);
-				if(flag == true){
-					System.out.print("Data yang dicari ditemukan");
-				}
-				else{
-					System.out.print("Data yang dicari tidak ditemukan");
-				menu_Pencarian_penghapusan_data();
-				
-					break;
-				
+			System.out.print("Masukkan data yang ingin dicari : ");
+			int pencarian = input.nextInt();
+			find(pencarian);
+			if(flag == true){
+				System.out.print("Data yang dicari ditemukan");
+			}else{
+				System.out.print("Data yang dicari tidak ditemukan");
 			}
-		case 2: {
-			System.out.print("Masukkan data yang ingin diubah :");
-			
-				break;
-			}
-		}
-
+			menu_Pencarian_penghapusan_data();
+			break;
+		case 2: 
+			System.out.print("Masukkan data ke berapa yang ingin diubah :");
+			int dataKe = input.nextInt();
+			System.out.print("Masukan nilai data yang di inginkan :");
+			int ubah = input.nextInt();
+			replace(dataKe, ubah);
+			menu_Pencarian_penghapusan_data()
+			break;
 		case 3: {
 			printList(true);
 			System.out.print("Kembali?");
 			String yesNo = input.next();
-			menuPenghapusanNode();
+			menu_Pencarian_penghapusan_data()
 			break;
 		}
 		case 4:
@@ -299,7 +337,7 @@ public class Double2LinkedList {
 			break;
 		default:
 			System.out.print("Silakan pilih antara [1/2/3/4]");
-			menuPenghapusanNode();
+			menu_Pencarian_penghapusan_data()
 		}
 
 	}
