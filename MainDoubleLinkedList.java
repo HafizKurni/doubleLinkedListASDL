@@ -2,8 +2,20 @@ import java.util.Scanner;
 import java.util.LinkedList;
 public class MainDoubleLinkedList{
      static LinkedList<Integer> lListP = new LinkedList<>();
-	
-	
+     static void menuUtama() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("\n[--------Pilih Cara Pengerjaan----------]");
+		System.out.println("1. Secara Manual ");
+		System.out.println("2. Secara Pustaka ");
+		System.out.print("Silakan pilih antara [1/2] : ");
+		int pilihUtama = input.nextInt();
+		if (pilihUtama == 1) {
+			Double2LinkedList lList = new Double2LinkedList();
+			lList.manual();
+		} else {
+			menuPustaka();
+		}
+	}
      static void menuPustaka() {
      Scanner input = new Scanner(System.in);
 	     System.out.println("\n[--------------------------------]");
@@ -13,22 +25,22 @@ public class MainDoubleLinkedList{
 	     System.out.println("3. Pencarian/Pengubahan Data");
 	     System.out.println("4. Kembali");
 	     System.out.print("Silakan pilih antara [1/2/3/4] : ");
-
 	     int pilih = input.nextInt();
 	     boolean x = true;
 	     switch (pilih) {
 		     case 1:
-			     //tambahData();
+			     tambahData();
 		     case 2:
 			     hapusData();
 		     case 3:
-			     //cariTukarData();
+			     cariTukarData();
+		     default:
+			     menuUtama();
 		}
 
 	static void tambahData() {
 		Scanner input = new Scanner(System.in);
 		boolean x = true;
-
 		System.out.println("\n[--------------------------------]");
 		System.out.println("**PILIHAN TAMBAHAN DATA NODE**");
 		System.out.println("1. Tambah Data Awal");
@@ -37,7 +49,6 @@ public class MainDoubleLinkedList{
 		System.out.println("4. Cetak Data");
 		System.out.println("5. Kembali");
 		System.out.print("Silakan pilih antara [1/2/3/4/5] : ");
-
 		int pilih1 = input.nextInt();
 		switch (pilih1) {
 		case 1:
@@ -64,10 +75,8 @@ public class MainDoubleLinkedList{
 				System.out.println("Memasukan Nilai Data 0 Untuk Berhenti ");
 				int ukuran = lListP.size();
 				int mid = ukuran / 2;
-
 				for (int i = 0; i < i + 1; i++) {
 					System.out.print("DATA KE-" + (mid+1) + ": ");
-
 					int dataInput = input.nextInt();
 					if (dataInput == 0) {
 						x = false;
@@ -88,7 +97,6 @@ public class MainDoubleLinkedList{
 			while (x == true) {
 				for (int i = 0; i < i + 1; i++) {
 					System.out.print("DATA KE-" + (ukuran+1) + ": ");
-
 					int dataInput = input.nextInt();
 					if (dataInput == 0) {
 						x = false;
@@ -123,9 +131,7 @@ public class MainDoubleLinkedList{
 		System.out.println("4. Cetak Data");
 		System.out.println("5. Kembali");
 		System.out.print("Silakan pilih antara [1/2/3/4/5] : ");
-
 		int pilih2 = input.nextInt();
-
 		boolean x = true;
 		switch (pilih2) {
 		case 1:
@@ -133,7 +139,6 @@ public class MainDoubleLinkedList{
 				System.out.println("[----Penghapusan Data---]");
 				System.out.println("Yakin menghapus data awal? (y/n)");
 				String yesNo2 = input.next();
-
 				if (yesNo2.equalsIgnoreCase("y")) {
 					lListP.removeFirst();
 				} else {
@@ -147,10 +152,8 @@ public class MainDoubleLinkedList{
 				System.out.println("[----Penghapusan Data---]");
 				System.out.println("Yakin menghapus data Tengah? (y/n)");
 				String yesNo2 = input.next();
-				
 				int ukuran = lListP.size();
 				int mid = ukuran/2;
-
 				if (yesNo2.equalsIgnoreCase("y")) {
 					lListP.remove(mid);
 				} else {
@@ -194,7 +197,6 @@ public class MainDoubleLinkedList{
 		System.out.println("4. Kembali");
 		System.out.print("Silakan pilih antara [1/2/3/4] : ");
 		int pilih3 = input.nextInt();
-
 		switch (pilih3) {
 		case 1:
 			System.out.println("\n[----Pencarian Data---]");
@@ -241,25 +243,6 @@ public class MainDoubleLinkedList{
 	}
 
      public static void main(String[] args){
-         
-         Scanner input = new Scanner(System.in);
-          
-         System.out.println("[--------Pilih Cara Pengerjaan----------]");
-	    System.out.println("1. Secara Manual ");
-	    System.out.println("2. Secara Pustaka ");
-	    System.out.print("Silakan pilih antara [1/2] : ");
-         int pilih = input.nextInt();
-
-         if(pilih == 1){
-              Double2LinkedList lList = new Double2LinkedList();
-             lList.manual();
-         }else{
-             menuPustaka(); 
-         }
-
-         
-
-     
-     
+         menuUtama();
      }
 }
