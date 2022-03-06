@@ -346,13 +346,13 @@ public class Double2LinkedList extends MainDoubleLinkedList {
 			System.out.print("Masukan nilai data yang di inginkan :");
 			int ubah = input.nextInt();
 			replace(dataKe-1, ubah);
-			menu_Pencarian_penghapusan_data()
+			menu_Pencarian_penghapusan_data();
 			break;
 		case 3: {
 			printList(true);
 			System.out.print("Kembali?");
 			String yesNo = input.next();
-			menu_Pencarian_penghapusan_data()
+			menu_Pencarian_penghapusan_data();
 			break;
 		}
 		case 4:
@@ -360,7 +360,7 @@ public class Double2LinkedList extends MainDoubleLinkedList {
 			break;
 		default:
 			System.out.print("Silakan pilih antara [1/2/3/4]");
-			menu_Pencarian_penghapusan_data()
+			menu_Pencarian_penghapusan_data();
 		}
 
 	}

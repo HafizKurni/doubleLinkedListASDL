@@ -142,7 +142,7 @@ public class MainDoubleLinkedList{
 				if (yesNo2.equalsIgnoreCase("y")) {
 					lListP.removeFirst();
 				} else {
-					hapusData()
+					hapusData();
 					break;
 				}
 			}
@@ -157,7 +157,7 @@ public class MainDoubleLinkedList{
 				if (yesNo2.equalsIgnoreCase("y")) {
 					lListP.remove(mid);
 				} else {
-					hapusData()
+					hapusData();
 					break;
 				}
 			}
@@ -170,7 +170,7 @@ public class MainDoubleLinkedList{
 				if (yesNo2.equalsIgnoreCase("y")) {
 					lListP.removeLast();
 				} else {
-					hapusData()
+					hapusData();
 					break;
 				}
 			}
@@ -179,7 +179,7 @@ public class MainDoubleLinkedList{
 			System.out.print(lListP);
 			System.out.print("Kembali? (y)");
 			String yesNo = input.next();
-			hapusData()
+			hapusData();
 			break;
 		default:
 			menuPustaka();
