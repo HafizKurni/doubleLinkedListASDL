@@ -1,3 +1,4 @@
+package doubleLinkedListASDL;
 import java.util.Scanner;
 public class Double2LinkedList extends MainDoubleLinkedList {
 	Node head;
